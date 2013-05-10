@@ -4,17 +4,19 @@
     var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
     var tracks = api.GetTracks("mikewardca");
     Response.ContentType = "text/xml";
-    
 }
 
-<rss version="2.0">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
     <channel>
         <title>Mike Ward is Full of Shit</title>
         <link>https://soundcloud.com/mikewardca</link>
+        <itunes:image href="https://i3.sndcdn.com/avatars-000041285275-rwob95-t200x200.jpg" />
         <description>For French people Mike Ward is a comedy legend, for English people he's just an unknown chubby guy with a drinking problem and a lot of funny stories. In this episode Mike talks about French comedy, crazed fans and how the Hells Angels saved his life. Enjoy.</description>
         @foreach (var track in tracks) {
             <item>
                 <title>@track.Title</title>
+                <pubDate>@track.CreatedAt</pubDate>
+                <itunes:image href="@track.ArtworkUrl" />
                 <link>@track.PermalinkUrl</link>
                 <description>@track.Description</description>  
                 <enclosure url="@track.DownloadUrl" type="audio/mp3" />
