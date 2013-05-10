@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="mikewardca.cshtml" />
+    <Content Include="jeanrene-cbmlm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

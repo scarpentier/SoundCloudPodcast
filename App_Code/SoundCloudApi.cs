@@ -35,7 +35,7 @@ namespace SoundCloudPodcast
                             OriginalFormat = (string) t["original_format"],
                             Permalink = (string) t["permalink"],
                             PermalinkUrl = (string) t["permalink_url"],
-                            StreamUrl = (string) t["stream_url"],
+                            StreamUrl = string.Format("{0}?consumer_key={1}", t["stream_url"], Key),
                             Streamable = (bool) t["streamable"],
                             Title = (string) t["title"],
                             TrackType = (string) t["track_type"],

@@ -1,0 +1,28 @@
+﻿@using System.Configuration
+@using System.Linq
+@using SoundCloudPodcast
+@{
+    var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
+    var tracks = api.GetTracks("premierechaine").Where(t => t.Title.Contains("Jean-René Dufort"));
+    Response.ContentType = "text/xml";
+}
+
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
+    <channel>
+        <title>Jean-René Dufort à C'est bien meilleur le matin</title>
+        <description>Il anime une chronique humoristique tous les vendredis à 8 h 35. Diplômé de l'Université Sherbrooke en biochimie, Jean-René Dufort entame sa carrière dans les communications en rédigeant des articles scientifiques. En 1997, il commence sa carrière à la télévision en tant que reporter d'actualités farfelues à l'émission La fin du monde est à sept heures, animée par Marc Labrèche. Cette année, son émission Infoman souligne son 10e anniversaire en ondes.</description>
+        <link>http://www.radio-canada.ca/emissions/cest_bien_meilleur_le_matin/2012-2013/chroniqueur.asp?chroniqueur=jean-ren%E9_dufort</link>
+        <itunes:image href="https://i2.sndcdn.com/artworks-000046496948-isz3xf-t500x500.jpg" />
+        <language>fr-ca</language>
+        @foreach (var track in tracks) {
+            <item>
+                <title>@track.Title</title>
+                <pubDate>@track.CreatedAt.ToUniversalTime().ToString("o")</pubDate>
+                <itunes:image href="@track.ArtworkUrl" />
+                <link>@track.PermalinkUrl</link>
+                <description>@track.Description</description>  
+                <enclosure url="@track.StreamUrl" type="audio/mp3" />
+            </item>
+        }
+    </channel>
+</rss>
