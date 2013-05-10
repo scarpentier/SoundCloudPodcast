@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoundCloudPodcast.Core.Objects
+namespace SoundCloudPodcast
 {
     public class Track
     {

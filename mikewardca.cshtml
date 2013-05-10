@@ -1,5 +1,5 @@
 ﻿@using System.Configuration
-@using SoundCloudPodcast.Core
+@using SoundCloudPodcast
 @{
     var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
     var tracks = api.GetTracks("mikewardca");

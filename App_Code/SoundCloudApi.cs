@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
-using SoundCloudPodcast.Core.Objects;
 
-namespace SoundCloudPodcast.Core
+namespace SoundCloudPodcast
 {
     public class SoundCloudApi
     {
