@@ -17,7 +17,7 @@
         @foreach (var track in tracks) {
             <item>
                 <title>@track.Title</title>
-                <pubDate>@track.CreatedAt.ToString()</pubDate>
+                <pubDate>@track.CreatedAt.ToString("o")</pubDate>
                 <itunes:image href="@track.ArtworkUrl" />
                 <link>@track.PermalinkUrl</link>
                 <description>@track.Description</description>  
