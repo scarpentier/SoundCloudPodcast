@@ -1,0 +1,36 @@
+﻿@using System.Configuration
+@using System.Linq
+@using SoundCloudPodcast
+@{
+    var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
+    var username = Request.QueryString["user"];
+    var keyword = Request.QueryString["keyword"];
+
+    var user = api.GetUser(username);
+    var tracks = api.GetTracks(username);
+    if (!string.IsNullOrEmpty(keyword))
+    {
+        tracks = tracks.Where(t => t.Title.Contains(keyword)).ToList();
+    }
+
+    Response.ContentType = "text/xml";
+}
+
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
+    <channel>
+        <title>@user.FullName</title>
+        <description>@user.Description</description>
+        <link>@user.WebsiteUrl</link>
+        <itunes:image href="@user.AvatarUrl" />
+        @foreach (var track in tracks) {
+            <item>
+                <title>@track.Title</title>
+                <pubDate>@track.CreatedAt.ToUniversalTime().ToString("o")</pubDate>
+                <itunes:image href="@track.ArtworkUrl" />
+                <link>@track.PermalinkUrl</link>
+                <description>@track.Description</description>  
+                <enclosure url="@track.StreamUrl" type="audio/mp3" />
+            </item>
+        }
+    </channel>
+</rss>

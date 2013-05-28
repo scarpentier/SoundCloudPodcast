@@ -53,17 +53,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\explosion.js" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="Content\jquery.2.0.1.min.js" />
+    <Content Include="default.html" />
+    <Content Include="img\star.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\SoundCloudApi.cs" />
     <Content Include="App_Code\Track.cs" />
+    <Content Include="App_Code\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="mikewardca.cshtml" />
     <Content Include="jeanrene-cbmlm.cshtml" />
+    <Content Include="podcast.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

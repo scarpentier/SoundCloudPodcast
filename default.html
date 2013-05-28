@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SoundCloud Podcast</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Content/jquery.2.0.1.min.js"></script>
+    <script src="Content/bootstrap.min.js"></script>
+    <script src="Content/explosion.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#keywordHint').tooltip();
+            $('#magic').click(function (event) {
+                $(event.currentTarget).explode({
+                    img: './img/star.png',
+                    centerOn: event.currentTarget,
+                    interval: 2,
+                    minThrow: 500,
+                    maxThrow: 800,
+                    num: 50,
+                    extraWidth: 100,
+                    rotateSpeed: 30
+                });
+            });
+        });
+    </script>
+
+    </head>
+    <body>
+        <div class="container">
+            
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="#">SoundCloud Podcast</a>
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="https://github.com/scarpentier/SoundCloudPodcast">Source code</a></li>
+                        <li><a href="https://github.com/scarpentier/SoundCloudPodcast/issues">Issues</a></li>
+                        <li><a href="https://github.com/scarpentier/SoundCloudPodcast/commits/master">Changelog</a></li>
+                        <li><a href="http://spacebar.ca">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hero-unit">
+                <h1>Hello!</h1>
+                <p>This online tool converts your favorite SoundCloud channels to a RSS feed so you can listen to it with your favorite podcast app while on the go!</p>
+                <br/>
+                <form class="form-horizontal" action="podcast.cshtml">
+                    <div class="control-group">
+                        <label class="control-label" for="user">SoundCloud user name</label>
+                        <div class="controls">
+                            <input type="text" name="user"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="keyword">Specific keywords <i class="icon-question-sign" id="keywordHint" data-title="If set, the feed will return only sounds that contains the keyword you type here in its title"></i></label>
+                        <div class="controls">
+                            <input type="text" name="keyword" placeholder="(optional)"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" id="magic" class="btn btn-primary">Magic!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

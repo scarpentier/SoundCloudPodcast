@@ -15,6 +15,30 @@ namespace SoundCloudPodcast
             Key = key;
         }
 
+        public User GetUser(string user)
+        {
+            const string serviceUrl = "/users/{1}.json?consumer_key={0}";
+
+            var url = string.Format(ApiBaseUrl + serviceUrl, Key, user);
+            var jsonData = new System.Net.WebClient().DownloadString(url);
+            var o = JObject.Parse(jsonData);
+
+            return new User
+                {
+                    Permalink = (string)o["permalink"],
+                    UserName = (string)o["username"],
+                    PermalinkUrl = (string)o["permalink_url"],
+                    AvatarUrl = (string)o["avatar_url"],
+                    City = (string)o["city"],
+                    Country = (string)o["country"],
+                    Description = (string)o["description"],
+                    FullName = (string)o["full_name"],
+                    Id = (long)o["id"],
+                    WebsiteTitle = (string)o["website_title"],
+                    WebsiteUrl = (string)o["website"]
+                };
+        }
+
         public List<Track> GetTracks(string user)
         {
             const string serviceUrl = "/users/{1}/tracks.json?consumer_key={0}";
