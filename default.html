@@ -9,7 +9,7 @@
     
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#keywordHint').tooltip();
+            $('.icon-question-sign').tooltip();
             $('#magic').click(function (event) {
                 $(event.currentTarget).explode({
                     img: './img/star.png',
@@ -54,9 +54,15 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="keyword">Specific keywords <i class="icon-question-sign" id="keywordHint" data-title="If set, the feed will return only sounds that contains the keyword you type here in its title"></i></label>
+                        <label class="control-label" for="keyword">Specific keywords <i class="icon-question-sign" data-title="If set, the feed will return only sounds that contains the keyword you type here in its title"></i></label>
                         <div class="controls">
                             <input type="text" name="keyword" placeholder="(optional)"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="keyword">Custom title <i class="icon-question-sign" data-title="If set, the title will override the user's name as the title of the feed generated"></i></label>
+                        <div class="controls">
+                            <input type="text" name="title" placeholder="(optional)"/>
                         </div>
                     </div>
                     <div class="control-group">

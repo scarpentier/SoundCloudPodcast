@@ -5,6 +5,7 @@
     var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
     var username = Request.QueryString["user"];
     var keyword = Request.QueryString["keyword"];
+    var title = Request.QueryString["title"];
 
     var user = api.GetUser(username);
     var tracks = api.GetTracks(username);
@@ -12,7 +13,13 @@
     {
         tracks = tracks.Where(t => t.Title.ToLowerInvariant().Contains(keyword.ToLowerInvariant())).ToList();
     }
-
+    
+    // Custom settings override
+    if (!string.IsNullOrEmpty(title))
+    {
+        user.FullName = title;
+    }
+    
     Response.ContentType = "text/xml";
 }
 
