@@ -10,7 +10,7 @@
     var tracks = api.GetTracks(username);
     if (!string.IsNullOrEmpty(keyword))
     {
-        tracks = tracks.Where(t => t.Title.Contains(keyword)).ToList();
+        tracks = tracks.Where(t => t.Title.ToLowerInvariant().Contains(keyword.ToLowerInvariant())).ToList();
     }
 
     Response.ContentType = "text/xml";
