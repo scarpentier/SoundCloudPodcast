@@ -20,4 +20,4 @@ This project makes use of the following libraries:
 
 
 ## Warning
-I *\*may*\* not be entirely compliant with the SoundCloud API ToS so if this thing suddenly stops working, it will probably be because they revoked my API key.
+I *may* not be entirely compliant with the SoundCloud API ToS so if this thing suddenly stops working, it will probably be because they revoked my API key.
