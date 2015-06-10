@@ -3,7 +3,7 @@
 @using SoundCloudPodcast
 @{
     var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
-    var tracks = api.GetTracks("premierechaine").Where(t => t.Title.Contains("Jean-René Dufort"));
+    var tracks = api.GetTracksRepostFromUserId("22762466");
     Response.ContentType = "text/xml";
 }
 

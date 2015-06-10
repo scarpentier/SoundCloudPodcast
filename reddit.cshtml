@@ -2,20 +2,18 @@
 @using SoundCloudPodcast
 @{
     var api = new SoundCloudApi(ConfigurationManager.AppSettings["ApiKey"]);
-    var tracks = api.GetTracksFromUser("mikewardca");
+    var tracks = api.GetTracksFromPlaylist("100867890", "s-p1HE3");
     Response.ContentType = "text/xml";
 }
 
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
     <channel>
-        <title>Mike Ward is Full of Shit</title>
-        <description>For French people Mike Ward is a comedy legend, for English people he's just an unknown chubby guy with a drinking problem and a lot of funny stories.</description>
-        <link>https://soundcloud.com/mikewardca</link>
-        <itunes:image href="https://i3.sndcdn.com/avatars-000042559372-nr1lou-t200x200.jpg" />
+        <title>Upvoted by reddit</title>
+        <description>Every day, hundreds of thousands of votes are cast across thousands of communities on reddit. reddit propels people and ideas to an audience of millions. We created this podcast so we can delve deeper and go beyond those upvotes -- to learn more about the stories that hit our frontpage and left a lasting impression. Hopefully, we'll gain further insight into ourselves as well as the communities we love that make reddit so special.</description>
+        <link>https://soundcloud.com/upvoted</link>
+        <itunes:image href="https://i1.sndcdn.com/avatars-000144082282-38iwk1-t200x200.jpg" />
         <language>en</language>
-        <itunes:author>Mike Ward</itunes:author>
-        <itunes:category text="Comedy" />
-        <itunes:explicit>yes</itunes:explicit>
+        <itunes:author>reddit</itunes:author>
         @foreach (var track in tracks) {
             <item>
                 <title>@track.Title</title>

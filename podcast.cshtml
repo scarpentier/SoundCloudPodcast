@@ -8,7 +8,7 @@
     var title = Request.QueryString["title"];
 
     var user = api.GetUser(username);
-    var tracks = api.GetTracks(username);
+    var tracks = api.GetTracksFromUser(username);
     if (!string.IsNullOrEmpty(keyword))
     {
         tracks = tracks.Where(t => t.Title.ToLowerInvariant().Contains(keyword.ToLowerInvariant())).ToList();

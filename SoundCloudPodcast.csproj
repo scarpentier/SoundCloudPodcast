@@ -71,8 +71,9 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="mikewardca.cshtml" />
-    <Content Include="jeanrene-cbmlm.cshtml" />
+    <Content Include="infoman.cshtml" />
     <Content Include="podcast.cshtml" />
+    <Content Include="reddit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
